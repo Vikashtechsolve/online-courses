@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to React Setup",
+    "mentor": "Vikash Dubey",
+    "date": "22 January, 2026",
+    "duration": null,
+    "status": "Live",
+    "type": "Upcoming"
+  },
+  {
+    "id": 2,
+    "title": "JSX Fundamentals & Syntax Rules",
+    "mentor": "Amit Vaghamsi",
+    "date": "21 January, 2026",
+    "duration": null,
+    "status": "Live",
+    "type": "Upcoming"
+  },
+  {
+    "id": 3,
+    "title": "Building Components & Using Props",
+    "mentor": "Amit Vaghamsi",
+    "date": "21 January, 2026",
+    "duration": "1h 30m",
+    "status": "Completed",
+    "type": "Past"
+  },
+  {
+    "id": 4,
+    "title": "State Management with Hooks",
+    "mentor": "Vikash Dubey",
+    "date": "20 January, 2026",
+    "duration": "1h 40m",
+    "status": "Completed",
+    "type": "Past"
+  },
+  {
+    "id": 5,
+    "title": "Fetching Data with APIs (REST & Axios)",
+    "mentor": "Vikash Dubey",
+    "date": "19 January, 2026",
+    "duration": "2h 20m",
+    "status": "Recorded",
+    "type": "Recorded"
+  },
+  {
+    "id": 6,
+    "title": "Project Structure & Best Practices in React",
+    "mentor": "Amit Vaghamsi",
+    "date": "19 January, 2026",
+    "duration": "1h 45m",
+    "status": "Recorded",
+    "type": "Recorded"
+  },
+  {
+    "id": 7,
+    "title": "Handling Events & Forms",
+    "mentor": "Vikash Dubey",
+    "date": "25 January, 2026",
+    "duration": null,
+    "status": "In Progress",
+    "type": "Upcoming"
+  },
+  {
+    "id": 8,
+    "title": "React Routing & Navigation",
+    "mentor": "Amit Vaghamsi",
+    "date": "25 January, 2026",
+    "duration": null,
+    "status": "In Progress",
+    "type": "Upcoming"
+  }
+]

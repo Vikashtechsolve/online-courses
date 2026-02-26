@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Build Todo App",
+    "course": "React",
+    "dueDate": "24th January, 2026",
+    "status": "Pending"
+  },
+  {
+    "id": 2,
+    "title": "Build Weather App",
+    "course": "React",
+    "dueDate": "28th January, 2026",
+    "status": "Submitted"
+  }
+]
