@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AssignmentSubmissionModal from "../Pages/AssignmentSubmissionModal";
 
-export default function AssignmentCard({ title, status }) {
+export default function AssignmentCard({ title, status, Duedate, course }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -23,6 +23,32 @@ export default function AssignmentCard({ title, status }) {
             }`}
           >
             {status}
+          </span>
+        </p>
+
+        <p className="text-sm mb-4">
+          Course:
+          <span
+            className={`ml-2 px-2 py-1 rounded text-xs ${
+              status === "Pending"
+                ? "bg-yellow-100 text-yellow-700"
+                : " text-gray-400"
+            }`}
+          >
+            {course}
+          </span>
+        </p>
+
+        <p className="text-sm mb-4">
+          DueDate:
+          <span
+            className={`ml-2 px-2 py-1 rounded text-xs ${
+              status === "Pending"
+                ? "bg-yellow-100 text-gray-700"
+                : " text-gray-400"
+            }`}
+          >
+            {Duedate}
           </span>
         </p>
 

@@ -60,12 +60,12 @@ export default function Assignments() {
         </h1>
 
         <div className="flex gap-4">
-          <button className="flex items-center gap-2 px-4 py-2 border rounded-xl text-sm bg-white hover:bg-gray-100">
+          <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-xl text-sm bg-white hover:bg-gray-100">
             Select Course
             <ChevronDown size={16} />
           </button>
 
-          <button className="flex items-center gap-2 px-4 py-2 border rounded-xl text-sm bg-white hover:bg-gray-100">
+          <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-xl text-sm bg-white hover:bg-gray-100">
             Select Status
             <ChevronDown size={16} />
           </button>
@@ -78,7 +78,7 @@ export default function Assignments() {
         {assignments.map((item, index) => (
           <div
             key={index}
-            className="bg-white border rounded-xl p-5 shadow-sm hover:shadow-md transition"
+            className="bg-[#2360BB0F] rounded-xl p-5 shadow-sm hover:shadow-md transition"
           >
 
             {/* Title */}

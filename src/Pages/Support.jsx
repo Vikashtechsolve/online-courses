@@ -22,7 +22,7 @@ export default function Support() {
 
         <button
           onClick={() => navigate("/support/create-ticket")}
-          className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-5 py-2 rounded-lg transition"
+          className="bg-[#2360BB] hover:bg-blue-700 text-white text-sm px-5 py-2 rounded-lg transition"
         >
           CREATE TICKET
         </button>

@@ -44,11 +44,11 @@ export default function Announcements() {
       </div>
 
       {/* Heading */}
-      <h1 className="text-2xl font-bold text-gray-800 mb-2">
+      <h1 className="text-2xl font-bold font-serif text-gray-800 mb-2">
         Announcements
       </h1>
 
-      <p className="text-gray-600 mb-6">
+      <p className="text-gray-600 font-semibold mb-6">
         Stay updated with the latest course-related announcements and important notices.
       </p>
 
@@ -58,24 +58,24 @@ export default function Announcements() {
         {announcements.map((item, index) => (
           <div
             key={index}
-            className="bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition"
+            className="bg-[#F2F2F2] rounded-xl p-6 shadow-sm hover:shadow-md transition"
           >
             {/* Title */}
             <div className="flex items-start gap-3 mb-3">
               <Megaphone className="text-blue-500 mt-1" size={20} />
-              <h3 className="text-red-600 font-semibold text-lg">
+              <h3 className="text-[#B11C20] font-serif  text-lg">
                 {item.title}
               </h3>
             </div>
 
             {/* Description */}
-            <p className="text-gray-700 text-sm leading-relaxed mb-4">
+            <p className="text-gray-700 text-md font-semibold leading-relaxed mb-4">
               {item.description}
             </p>
 
             {/* Date */}
             <p className="text-xs text-gray-500">
-              Date Posted: {item.date}
+              <span className="text-black">  Date Posted:</span> {item.date}
             </p>
           </div>
         ))}

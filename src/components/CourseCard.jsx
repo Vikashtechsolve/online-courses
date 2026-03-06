@@ -3,7 +3,7 @@ export default function CourseCard({ title, mentor, duration }) {
 
   return (
 
-    <div className="bg-[#2360BB0F] w-80 p-4 rounded-xl shadow-sm">
+    <div className="bg-[#2360BB0F] lg:w-96 p-4 rounded-xl shadow-sm">
 
       <h4 className="text-red-600 font-medium">
         {title}
@@ -20,7 +20,7 @@ export default function CourseCard({ title, mentor, duration }) {
       </p>
 
 
-      <button className="mt-3 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm">
+      <button className="mt-3 bg-[#2360BB] text-white px-4 py-2 rounded-lg text-sm">
         Continue Learning
       </button>
 

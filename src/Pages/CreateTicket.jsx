@@ -91,7 +91,7 @@ export default function CreateTicket() {
         </div>
 
         {/* Submit Button */}
-        <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-6 py-3 rounded-lg transition">
+        <button className="bg-[#2360BB] hover:bg-blue-700 text-white text-sm px-6 py-3 rounded-lg transition">
           Submit Ticket
         </button>
 

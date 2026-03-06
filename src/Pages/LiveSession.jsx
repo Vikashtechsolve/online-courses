@@ -45,7 +45,7 @@ export default function LiveSessions() {
         {sessions.map((session, index) => (
           <div
             key={index}
-            className="bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition"
+            className="bg-[#F0F0F0]  rounded-xl p-6 shadow-sm hover:shadow-md transition"
           >
             {/* Title */}
             <h3 className="text-red-600 font-semibold text-lg mb-4">
@@ -99,7 +99,7 @@ export default function LiveSessions() {
                 Join Session
               </button>
 
-              <button className="flex items-center gap-2 bg-yellow-100 text-yellow-600 hover:bg-yellow-200 text-sm px-4 py-2 rounded-lg transition">
+              <button className="flex items-center gap-2 bg-[#EDA8381A] text-[#EDA838] hover:bg-yellow-200 text-sm px-4 py-2 rounded-lg transition">
                 <Bell size={16} />
                 Set Reminder
               </button>

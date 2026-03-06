@@ -41,7 +41,7 @@ export default function MyCourses() {
         {courses.map((course, index) => (
           <div
             key={index}
-            className="bg-white rounded-xl shadow-sm border p-5 hover:shadow-md transition"
+            className="bg-[#EAF2FF] shadow-sm  p-5 hover:shadow-md transition"
           >
             {/* Title */}
             <h2 className="text-red-600 font-semibold text-lg mb-3">
@@ -76,7 +76,7 @@ export default function MyCourses() {
             {/* Button */}
             <button
               onClick={() => navigate("/course/react-development")}
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg transition"
+              className="flex items-center gap-2 bg-[#2360BB] hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg transition"
             >
               View Course Details
               <ArrowRight size={16} />
