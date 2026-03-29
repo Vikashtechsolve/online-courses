@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { LogOut, ShieldAlert } from "lucide-react";
+import { logoutUser } from "../utils/auth";
 
 export default function Logout() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    
-    navigate("/login"); 
+    logoutUser();
+    navigate("/login", { replace: true });
   };
 
   const handleCancel = () => {
@@ -13,51 +16,49 @@ export default function Logout() {
   };
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-
-      {/* Breadcrumb */}
-      <div className="text-sm text-gray-500 mb-3">
-        Dashboard <span className="mx-1">›</span>
-        <span className="text-red-600 font-medium">Logout</span>
+    <div className="p-4 md:p-6 lg:p-8 bg-slate-50 min-h-full space-y-6">
+      <div className="text-sm flex items-center gap-2 text-slate-500">
+        <Link
+          to="/dashboard"
+          className="hover:text-blue-600 transition-colors cursor-pointer"
+        >
+          Dashboard
+        </Link>
+        <span>/</span>
+        <span className="font-medium text-slate-700">Logout</span>
       </div>
 
-      {/* Heading */}
-      <h1 className="text-2xl font-bold text-gray-800 mb-12">
-        Logout
-      </h1>
+      <div className="rounded-2xl border border-red-100 bg-red-50/60 shadow-sm p-6 max-w-2xl">
+        <div className="flex items-start gap-4 mb-4">
+          <div className="w-12 h-12 rounded-xl bg-white border border-red-200 inline-flex items-center justify-center">
+            <ShieldAlert className="text-red-600" size={22} />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900">Logout</h1>
+            <p className="text-slate-600 mt-1">
+              Are you sure you want to log out? You will need to sign in again
+              to continue.
+            </p>
+          </div>
+        </div>
 
-      {/* Center Content */}
-      <div className="flex flex-col items-center justify-center mt-10">
-
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">
-          Are You Sure You Want to Log Out?
-        </h2>
-
-        <p className="text-gray-500 text-sm mb-8 text-center">
-          You’ll be logged out of your Dashboard and will need to sign in again to continue.
-        </p>
-
-        {/* Buttons */}
-        <div className="w-full max-w-md space-y-4">
-
+        <div className="grid sm:grid-cols-2 gap-3 mt-6">
           <button
             onClick={handleLogout}
-            className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 rounded-lg transition"
+            className="w-full inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white py-3 rounded-xl transition-colors cursor-pointer font-medium"
           >
-            Yes
+            <LogOut size={16} />
+            Yes, Logout
           </button>
 
           <button
             onClick={handleCancel}
-            className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 rounded-lg transition"
+            className="w-full bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 py-3 rounded-xl transition-colors cursor-pointer font-medium"
           >
             Cancel
           </button>
-
         </div>
-
       </div>
-
     </div>
   );
 }

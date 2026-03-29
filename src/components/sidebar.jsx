@@ -53,7 +53,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
             <img
               src={logo}
               alt="VTS Logo"
-              className="h-20 md:h-30 w-auto object-contain lg:-mt-6"
+              className="h-24 md:h-32 w-auto object-contain lg:-mt-6"
             />
           </NavLink>
 

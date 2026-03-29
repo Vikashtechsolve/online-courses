@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+/* Practice content rich HTML styling */
+.practice-content h1 { font-size: 1.875rem; font-weight: 700; margin: 0.75em 0 0.5em; color: #0f172a; }
+.practice-content h2 { font-size: 1.5rem; font-weight: 600; margin: 0.75em 0 0.5em; color: #0f172a; }
+.practice-content h3 { font-size: 1.25rem; font-weight: 600; margin: 0.5em 0; color: #1e293b; }
+.practice-content h4 { font-size: 1.125rem; font-weight: 600; margin: 0.5em 0; color: #1e293b; }
+.practice-content p { margin: 0.5em 0; line-height: 1.6; }
+.practice-content strong, .practice-content b { font-weight: 700; }
+.practice-content em, .practice-content i { font-style: italic; }
+.practice-content u { text-decoration: underline; }
+.practice-content ul { margin: 0.5em 0; padding-left: 1.5em; list-style: disc; }
+.practice-content ol { margin: 0.5em 0; padding-left: 1.5em; list-style: decimal; }
+.practice-content li { margin: 0.25em 0; }
+.practice-content a { color: #2563eb; text-decoration: underline; }
+.practice-content a:hover { color: #1d4ed8; }
+.practice-content blockquote { border-left: 4px solid #cbd5e1; margin: 0.5em 0; padding-left: 1em; color: #475569; }
+.practice-content hr { border: none; border-top: 1px solid #e2e8f0; margin: 1em 0; }
+.practice-content code, .practice-content pre { background: #f1f5f9; padding: 0.125em 0.25em; border-radius: 0.25rem; font-size: 0.9em; }
+.practice-content pre { display: block; padding: 0.75em; overflow-x: auto; }

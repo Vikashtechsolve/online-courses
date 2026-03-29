@@ -1,34 +1,18 @@
 export default function ProgressBar({ title, progress }) {
-
   return (
-
-    <div className=" bg-[#F2F2F2] p-4 mb-3 lg:w-96 rounded px-4">
-
-      <div className="flex gap-2 text-sm mb-1">
-
-        <span className="text-red-600"> 
-          {title} 
-        </span>
-          <span className="text-gray-600">In Progress</span>
-        <span className="ml-auto">
-          {progress}
-        </span>
-
+    <div className="rounded-2xl border border-blue-100 bg-blue-50/60 p-5 shadow-sm">
+      <div className="flex items-center gap-2 text-sm mb-3">
+        <span className="font-semibold text-slate-900">{title}</span>
+        <span className="text-slate-500">In Progress</span>
+        <span className="ml-auto font-medium text-slate-800">{progress}</span>
       </div>
 
-
-      <div className="w-full bg-[#BEBEBE66] h-3 rounded-full">
-
+      <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
         <div
-          className="bg-[#B11C20] h-3 rounded-full"
+          className="bg-linear-to-r from-blue-600 to-indigo-500 h-full rounded-full"
           style={{ width: progress }}
-        ></div>
-
+        />
       </div>
-
-
     </div>
-
   );
-
 }
