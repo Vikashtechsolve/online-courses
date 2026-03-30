@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import Hls from "hls.js";
+import { resolveApiBaseUrl } from "../config/env";
 
 function isHLS(url) {
   return url && (url.includes(".m3u8") || url.endsWith(".m3u8"));
 }
 
 function getProxiedHlsUrl(r2Url) {
-  const apiBase = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
-  const base = apiBase.replace(/\/$/, "");
+  const base = resolveApiBaseUrl().replace(/\/$/, "");
   return `${base}/proxy/video?url=${encodeURIComponent(r2Url)}`;
 }
 
