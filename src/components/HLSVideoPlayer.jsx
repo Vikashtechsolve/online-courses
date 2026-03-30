@@ -11,6 +11,18 @@ function getProxiedHlsUrl(r2Url) {
   return `${base}/proxy/video?url=${encodeURIComponent(r2Url)}`;
 }
 
+/** HTTPS pages cannot load `http://` media (mixed content). Segment URLs come from the .m3u8 body. */
+function upgradeXhrUrlIfNeeded(url) {
+  if (
+    typeof window === "undefined" ||
+    window.location.protocol !== "https:" ||
+    typeof url !== "string"
+  ) {
+    return url;
+  }
+  return url.replace(/^http:\/\//i, "https://");
+}
+
 export default function HLSVideoPlayer({ src, className = "", ...props }) {
   const videoRef = useRef(null);
   const [error, setError] = useState(null);
@@ -27,8 +39,13 @@ export default function HLSVideoPlayer({ src, className = "", ...props }) {
         const hls = new Hls({
           enableWorker: true,
           lowLatencyMode: false,
-          xhrSetup: (xhr) => {
+          // Second arg is the request URL (manifest, variants, segments). Open with HTTPS when the SPA is HTTPS.
+          xhrSetup: (xhr, url) => {
             xhr.withCredentials = false;
+            const u = upgradeXhrUrlIfNeeded(url);
+            if (u !== url) {
+              xhr.open("GET", u, true);
+            }
           },
         });
 
