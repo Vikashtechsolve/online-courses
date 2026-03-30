@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { Search, Loader2, FileText, Calendar } from "lucide-react";
 import { getCourseById } from "../../utils/coursesApi";
 import { getLectures } from "../../utils/lecturesApi";
+import { formatDateTime } from "../../utils/date";
 
 const statusMap = {
   live: "Live",
@@ -20,17 +21,6 @@ const getBadgeStyle = (status) => {
   if (s === "upcoming") return "bg-amber-50 text-amber-700 border-amber-100";
   return "bg-slate-50 text-slate-600 border-slate-200";
 };
-
-function formatDate(d) {
-  if (!d) return "";
-  return new Date(d).toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
 
 export default function CourseContent() {
   const { courseId } = useParams();
@@ -226,7 +216,7 @@ export default function CourseContent() {
                           <span>|</span>
                           <span className="flex items-center gap-1">
                             <Calendar size={14} />
-                            {formatDate(lecture.scheduledAt)}
+                            {formatDateTime(lecture.scheduledAt)}
                           </span>
                         </>
                       )}

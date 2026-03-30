@@ -11,18 +11,7 @@ import { getUser } from "../utils/auth";
 import { getCourses } from "../utils/coursesApi";
 import { getAssignments } from "../utils/assignmentsApi";
 import { getLectures } from "../utils/lecturesApi";
-
-function formatSessionTime(d) {
-  if (!d) return "";
-  const date = new Date(d);
-  return date.toLocaleString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
+import { formatDateTime } from "../utils/date";
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -157,7 +146,7 @@ export default function Dashboard() {
               <SessionCard
                 key={session._id}
                 title={session.title}
-                date={formatSessionTime(session.scheduledAt)}
+                date={formatDateTime(session.scheduledAt)}
                 time={session.duration ? `${session.duration} min` : ""}
                 mentor={session.teacher?.name || "Teacher"}
                 meetingLink={session.meetingLink}

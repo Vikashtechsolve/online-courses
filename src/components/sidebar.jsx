@@ -1,30 +1,29 @@
 import logo from "../assets/logo.png";
 import {
-  LuLayoutDashboard,
-  LuBookOpen,
-  LuVideo,
-  LuFileText,
-  LuAward,
-  LuMegaphone,
-  LuCircleHelp,
-  LuUser,
-  LuLogOut,
-} from "react-icons/lu";
-
-import { X } from "lucide-react";
+  LayoutDashboard,
+  BookOpen,
+  Video,
+  FileText,
+  Award,
+  Megaphone,
+  CircleHelp,
+  User,
+  LogOut,
+  X,
+} from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 export default function Sidebar({ isOpen, setIsOpen }) {
   const menu = [
-    { name: "Dashboard", icon: LuLayoutDashboard, path: "/dashboard" },
-    { name: "My Courses", icon: LuBookOpen, path: "/mycourses" },
-    { name: "Live Sessions", icon: LuVideo, path: "/livesessions" },
-    { name: "Assignments", icon: LuFileText, path: "/assignments" },
-    { name: "Certificates", icon: LuAward, path: "/certificates" },
-    { name: "Announcements", icon: LuMegaphone, path: "/announcements" },
-    { name: "Support/Help", icon: LuCircleHelp, path: "/support" },
-    { name: "Profile", icon: LuUser, path: "/profile" },
-    { name: "Logout", icon: LuLogOut, path: "/logout" },
+    { name: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+    { name: "My Courses", icon: BookOpen, path: "/mycourses" },
+    { name: "Live Sessions", icon: Video, path: "/livesessions" },
+    { name: "Assignments", icon: FileText, path: "/assignments" },
+    { name: "Certificates", icon: Award, path: "/certificates" },
+    { name: "Announcements", icon: Megaphone, path: "/announcements" },
+    { name: "Support/Help", icon: CircleHelp, path: "/support" },
+    { name: "Profile", icon: User, path: "/profile" },
+    { name: "Logout", icon: LogOut, path: "/logout" },
   ];
 
   return (

@@ -4,15 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { getAnnouncements, markAnnouncementsRead } from "../utils/announcementsApi";
 import { getCourses } from "../utils/coursesApi";
 import { getUser } from "../utils/auth";
-
-function formatDate(iso) {
-  if (!iso) return "";
-  return new Date(iso).toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-}
+import { formatDate } from "../utils/date";
 
 export default function Announcements() {
   const [searchParams, setSearchParams] = useSearchParams();

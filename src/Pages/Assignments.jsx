@@ -1,12 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  ChevronDown,
-  Loader2,
-  FileText,
-  Filter,
-  Calendar,
-  BookOpen,
-} from "lucide-react";
+import { Loader2, FileText, Filter, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import AssignmentCard from "../components/AssignmentCard";
 import AssignmentDetailModal from "../components/AssignmentDetailModal";

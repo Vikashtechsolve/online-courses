@@ -12,17 +12,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { submitAssignment } from "../utils/assignmentsApi";
-
-function formatDate(d) {
-  if (!d) return "";
-  return new Date(d).toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
+import { formatDateTime } from "../utils/date";
 
 export default function AssignmentDetailModal({
   assignment,
@@ -125,7 +115,7 @@ export default function AssignmentDetailModal({
             <div className="flex flex-wrap gap-4 mt-2 text-sm text-slate-600">
               <span className="flex items-center gap-1.5">
                 <Calendar size={16} />
-                Due {formatDate(assignment.dueDate)}
+                Due {formatDateTime(assignment.dueDate)}
               </span>
               {assignment.estimatedTime && (
                 <span className="flex items-center gap-1.5">

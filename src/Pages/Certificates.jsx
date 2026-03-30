@@ -3,15 +3,7 @@ import { Download, Loader2, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import { getCertificates, downloadCertificate } from "../utils/certificatesApi";
 import certificateImg from "./MyCourses/data/certificates.png";
-
-function formatDate(d) {
-  if (!d) return "";
-  return new Date(d).toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-}
+import { formatDate } from "../utils/date";
 
 export default function Certificates() {
   const [certificates, setCertificates] = useState([]);

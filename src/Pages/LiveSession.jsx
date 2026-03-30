@@ -16,18 +16,7 @@ import { getUser } from "../utils/auth";
 import { getCourses } from "../utils/coursesApi";
 import { getLectures } from "../utils/lecturesApi";
 import { getAssignments } from "../utils/assignmentsApi";
-
-function formatSessionTime(d) {
-  if (!d) return "";
-  const date = new Date(d);
-  return date.toLocaleString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
+import { formatDateTime } from "../utils/date";
 
 function isCreatedToday(dateValue) {
   if (!dateValue) return false;
@@ -191,7 +180,7 @@ export default function LiveSessions() {
                       <p className="inline-flex items-center gap-2">
                         <CalendarDays size={15} className="text-slate-500 shrink-0" />
                         <span className="font-medium text-slate-700">Date:</span>{" "}
-                        {formatSessionTime(session.scheduledAt)}
+                        {formatDateTime(session.scheduledAt)}
                       </p>
                       {session.duration && (
                         <p className="inline-flex items-center gap-2">

@@ -1,13 +1,5 @@
-import { Calendar, ChevronRight, Clock, CheckCircle2 } from "lucide-react";
-
-function formatDate(d) {
-  if (!d) return "";
-  return new Date(d).toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-}
+import { Calendar, ChevronRight } from "lucide-react";
+import { formatDate } from "../utils/date";
 
 function getDaysUntilDue(dueDate) {
   if (!dueDate) return null;

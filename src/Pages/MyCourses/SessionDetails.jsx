@@ -20,17 +20,7 @@ import {
 } from "../../utils/lecturesApi";
 import HLSVideoPlayer from "../../components/HLSVideoPlayer";
 import { getUser } from "../../utils/auth";
-
-function formatDate(d) {
-  if (!d) return "";
-  return new Date(d).toLocaleString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
+import { formatDateTime } from "../../utils/date";
 
 export default function SessionDetails() {
   const { courseId, lectureId } = useParams();
@@ -162,7 +152,7 @@ export default function SessionDetails() {
           <span>•</span>
           {lecture.scheduledAt && (
             <>
-              <span>{formatDate(lecture.scheduledAt)}</span>
+              <span>{formatDateTime(lecture.scheduledAt)}</span>
               <span>•</span>
             </>
           )}
@@ -347,7 +337,7 @@ export default function SessionDetails() {
                             isMine ? "text-blue-100" : "text-slate-400"
                           }`}
                         >
-                          {formatDate(d.createdAt)}
+                          {formatDateTime(d.createdAt)}
                         </p>
                       </div>
                       <p
