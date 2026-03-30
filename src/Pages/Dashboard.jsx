@@ -10,7 +10,7 @@ import home from "./MyCourses/data/home.png";
 import { getUser } from "../utils/auth";
 import { getCourses } from "../utils/coursesApi";
 import { getAssignments } from "../utils/assignmentsApi";
-import { getLectures } from "../utils/lecturesApi";
+import { getTodayLectures } from "../utils/lecturesApi";
 import { formatDateTime } from "../utils/date";
 
 export default function Dashboard() {
@@ -39,25 +39,8 @@ export default function Dashboard() {
       const allAssignments = assignmentsRes.assignments || [];
       setAssignments(allAssignments);
 
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const tomorrow = new Date(today);
-      tomorrow.setDate(tomorrow.getDate() + 1);
-
-      const sessionPromises = enrolledCourses.map((course) =>
-        getLectures({ course: course._id })
-      );
-      const sessionResults = await Promise.all(sessionPromises);
-      const todaysLectures = sessionResults
-        .flatMap((result) => result.lectures || [])
-        .filter((lecture) => {
-          if (!lecture?.scheduledAt) return false;
-          const scheduled = new Date(lecture.scheduledAt);
-          return scheduled >= today && scheduled < tomorrow;
-        })
-        .sort((a, b) => new Date(a.scheduledAt) - new Date(b.scheduledAt));
-
-      setTodaySessions(todaysLectures);
+      const todayRes = await getTodayLectures(user._id);
+      setTodaySessions(todayRes.lectures || []);
       return allAssignments;
     } catch {
       setCourses([]);

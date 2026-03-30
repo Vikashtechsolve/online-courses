@@ -20,7 +20,7 @@ export default function Topbar({ setIsOpen }) {
 
   useEffect(() => {
     loadUnreadCount();
-    const interval = setInterval(loadUnreadCount, 30000);
+    const interval = setInterval(loadUnreadCount, 120000);
     const onAnnouncementUpdated = () => loadUnreadCount();
     window.addEventListener("announcements:updated", onAnnouncementUpdated);
     return () => {

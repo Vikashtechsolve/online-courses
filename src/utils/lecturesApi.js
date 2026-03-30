@@ -7,6 +7,11 @@ export async function getLectures(params = {}) {
   return data;
 }
 
+export async function getTodayLectures(studentId) {
+  const { data } = await api.get(`/lectures/today?student=${studentId}`);
+  return data;
+}
+
 export async function getLectureById(id) {
   const { data } = await api.get(`/lectures/${id}`);
   return data.lecture;

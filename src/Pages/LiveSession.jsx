@@ -14,7 +14,7 @@ import AssignmentCard from "../components/AssignmentCard";
 import AssignmentDetailModal from "../components/AssignmentDetailModal";
 import { getUser } from "../utils/auth";
 import { getCourses } from "../utils/coursesApi";
-import { getLectures } from "../utils/lecturesApi";
+import { getTodayLectures } from "../utils/lecturesApi";
 import { getAssignments } from "../utils/assignmentsApi";
 import { formatDateTime } from "../utils/date";
 
@@ -42,9 +42,10 @@ export default function LiveSessions() {
   const loadData = async () => {
     setLoading(true);
     try {
-      const [coursesRes, assignmentsRes] = await Promise.all([
+      const [coursesRes, assignmentsRes, todayRes] = await Promise.all([
         getCourses({ student: user._id }),
         getAssignments({ student: user._id }),
+        getTodayLectures(user._id),
       ]);
       const enrolledCourses = coursesRes.courses || [];
       const allAssignments = assignmentsRes.assignments || [];
@@ -54,29 +55,11 @@ export default function LiveSessions() {
         return enrolledCourseIds.has(cid);
       });
 
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const tomorrow = new Date(today);
-      tomorrow.setDate(tomorrow.getDate() + 1);
-
-      const sessionPromises = enrolledCourses.map((course) =>
-        getLectures({ course: course._id })
-      );
-      const sessionResults = await Promise.all(sessionPromises);
-      const todaysLectures = sessionResults
-        .flatMap((result) => result.lectures || [])
-        .filter((lecture) => {
-          if (!lecture?.scheduledAt) return false;
-          const scheduled = new Date(lecture.scheduledAt);
-          return scheduled >= today && scheduled < tomorrow;
-        })
-        .sort((a, b) => new Date(a.scheduledAt) - new Date(b.scheduledAt));
-
       const todaysAssignments = myAssignments.filter((a) =>
         isCreatedToday(a.createdAt || a.assignedAt)
       );
 
-      setTodaySessions(todaysLectures);
+      setTodaySessions(todayRes.lectures || []);
       setTodayAssignments(todaysAssignments);
     } catch {
       setTodaySessions([]);
