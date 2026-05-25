@@ -39,6 +39,9 @@ export default function HLSVideoPlayer({ src, className = "", ...props }) {
         const hls = new Hls({
           enableWorker: true,
           lowLatencyMode: false,
+          // Avoid drift on long lectures; matches server independent_segments HLS.
+          maxBufferLength: 30,
+          maxMaxBufferLength: 600,
           // Second arg is the request URL (manifest, variants, segments). Open with HTTPS when the SPA is HTTPS.
           xhrSetup: (xhr, url) => {
             xhr.withCredentials = false;
